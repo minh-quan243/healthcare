@@ -1,0 +1,22 @@
+{
+  "0": "affirm",
+  "1": "deny",
+  "2": "explain_risk",
+  "3": "goodbye",
+  "4": "greet",
+  "5": "inform_age",
+  "6": "inform_chest_pain_type",
+  "7": "inform_cholesterol",
+  "8": "inform_exercise_angina",
+  "9": "inform_fasting_blood_sugar",
+  "10": "inform_max_heart_rate",
+  "11": "inform_num_major_vessels",
+  "12": "inform_resting_bp",
+  "13": "inform_resting_ecg",
+  "14": "inform_sex",
+  "15": "inform_st_slope",
+  "16": "inform_thalassemia",
+  "17": "out_of_scope",
+  "18": "request_risk_assessment",
+  "19": "thank_you"
+}

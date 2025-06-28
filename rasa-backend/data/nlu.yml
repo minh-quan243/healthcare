@@ -1,0 +1,221 @@
+# nlu.yml
+
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - chào
+    - xin chào
+    - hello
+    - hi
+    - chào buổi sáng
+    - chào buổi chiều
+    - chào buổi tối
+    - có ai ở đây không?
+    - hey bot
+
+- intent: goodbye
+  examples: |
+    - tạm biệt
+    - bye
+    - hẹn gặp lại
+    - thôi đi đây
+    - tạm biệt nhé
+    - tôi đi đây
+    - chúc ngủ ngon
+
+- intent: affirm
+  examples: |
+    - đúng vậy
+    - phải
+    - có
+    - vâng
+    - chính xác
+    - tôi đồng ý
+    - ừm
+
+- intent: deny
+  examples: |
+    - không
+    - không có
+    - tôi không biết
+    - không nhớ
+    - bỏ qua
+    - không muốn cung cấp
+    - không phải
+    - sai rồi
+
+- intent: request_risk_assessment
+  examples: |
+    - tôi muốn kiểm tra nguy cơ bệnh tim
+    - đánh giá nguy cơ bệnh tim
+    - kiểm tra sức khỏe tim mạch
+    - tôi có nguy cơ bị bệnh tim không?
+    - làm test bệnh tim
+    - check tim mạch
+    - bắt đầu đánh giá
+    - hãy giúp tôi đánh giá nguy cơ
+    - tôi muốn biết nguy cơ bệnh tim
+
+- intent: explain_risk
+  examples: |
+    - kết quả của tôi là gì?
+    - giải thích kết quả
+    - tôi có nguy cơ cao không?
+    - tại sao tôi lại có nguy cơ này?
+    - ý nghĩa của kết quả
+    - kết quả đó có nghĩa là gì?
+    - làm sao để hiểu kết quả này?
+
+- intent: thank_you
+  examples: |
+    - cảm ơn
+    - cám ơn bạn
+    - cảm ơn rất nhiều
+    - cám ơn nhé
+    - cảm ơn vì đã giúp đỡ
+
+- intent: out_of_scope
+  examples: |
+    - kể chuyện cười đi
+    - bạn có yêu tôi không
+    - bạn có thể chơi nhạc không
+    - tôi nên ăn gì
+    - làm thế nào để nấu ăn
+
+- intent: inform_age
+  examples: |
+    - tuổi tôi là [30](age)
+    - [40](age) tuổi
+    - [30](age) tuổi
+    - [20](age) tuổi
+    - tôi [hai mươi](age)
+    - tôi [ba mươi](age)
+    - tôi [hai mươi ba](age)
+    - tôi được [70](age) tuổi
+
+- intent: inform_sex
+  examples: |
+    - [nam](sex)
+    - [nữ](sex)
+    - tôi là [nam](sex)
+    - tôi là [nữ](sex)
+    - giới tính [nam](sex)
+    - giới tính [nữ](sex)
+    - giới tính là [nam](sex)
+    - giới tính là [nữ](sex)
+    - tôi giới tính [nam](sex)
+    - tôi giới tính [nữ](sex)
+    - tôi là giới tính [nam](sex)
+    - tôi là giới tính [nữ](sex)
+    - giới tính [1](sex)
+    - giới tính [0](sex)
+    - tôi là [1](sex)
+    - tôi là [0](sex)
+    - tôi giới tính [1](sex)
+    - tôi giới tính [0](sex)
+    - giới tính là [1](sex)
+    - giới tính là [0](sex)
+    - tôi là giới tính [1](sex)
+    - tôi là giới tính [0](sex)
+
+- intent: inform_chest_pain_type
+  examples: |
+    - đau ngực loại [0](chest_pain_type)
+    - đau ngực loại [1](chest_pain_type)
+    - đau ngực loại [2](chest_pain_type)
+    - đau ngực loại [3](chest_pain_type)
+    - loại [0](chest_pain_type)
+    - loại [1](chest_pain_type)
+    - loại [2](chest_pain_type)
+    - loại [3](chest_pain_type)
+    
+
+- intent: inform_resting_bp
+  examples: |
+    - mức ha tâm trương lúc nghỉ đo [125](resting_bp)
+    - mức ha tâm trương lúc nghỉ đo [140](resting_bp)
+    - ha tâm trương lúc nghỉ [120](resting_bp)
+    - ha tâm trương lúc nghỉ [130](resting_bp)
+    - ha tâm trương lúc nghỉ [135](resting_bp)
+
+- intent: inform_cholesterol
+  examples: |
+    - cholesterol [200](cholesterol)
+    - cholesterol [220](cholesterol)
+    - cholesterol [240](cholesterol)
+    - Chỉ số cholesterol [250](cholesterol)
+    - mức Chỉ số cholesterol của tôi là [220](cholesterol)
+
+- intent: inform_fasting_blood_sugar
+  examples: |
+    - đh lúc đói là [0](fasting_blood_sugar)
+    - đh lúc đói là [1](fasting_blood_sugar)
+    - đh lúc đói là [0](fasting_blood_sugar)
+    - chỉ số đh lúc đói [1](fasting_blood_sugar)
+    - đh lúc đói đo được là [0](fasting_blood_sugar)
+
+- intent: inform_resting_ecg
+  examples: |
+    - Kết quả điện tâm đồ lúc nghỉ [0](resting_ecg)
+    - điện tâm đồ của tôi là [1](resting_ecg)
+    - chỉ số điện tâm đồ là [1](resting_ecg)
+    - chỉ số điện tâm đồ là [0](resting_ecg)
+    - chỉ số điện tâm đồ là [2](resting_ecg)
+    - Kết quả điện tâm đồ của tôi đo được là [0](resting_ecg)
+
+- intent: inform_max_heart_rate
+  examples: |
+    - kết quả đo nhịp tim tối đa đạt được [150](max_heart_rate)
+    - nhịp tim tối đa của tôi là [160](max_heart_rate)
+    - Nhịp tim tối đa đạt được [155](max_heart_rate)
+    - Nhịp tim tối đa đạt được [160](max_heart_rate)
+    - Nhịp tim tối đa đạt được [150](max_heart_rate)
+
+- intent: inform_exercise_angina
+  examples: |
+    - [có](exercise_angina) đau thắt ngực khi gắng sức
+    - [không](exercise_angina) đau thắt ngực khi gắng sức
+    - [1](exercise_angina)
+    - [0](exercise_angina)
+    - đau thắt ngực [1](exercise_angina)
+    - đau thắt ngực [0](exercise_angina)
+    - đau thắt ngực [có](exercise_angina)
+    - đau thắt ngực [không](exercise_angina)
+
+- intent: inform_st_depression
+  examples: |
+    - st chênh [1.5](st_depression)
+    - st chênh [2.0](st_depression)
+    - st chênh [1.0](st_depression)
+    - Độ chênh xuống [1.0](st_depression)
+    - Độ chênh xuống [1.5](st_depression)
+    - Độ chênh xuống [0.5](st_depression)
+
+- intent: inform_st_slope
+  examples: |
+    - Độ dốc st [0](st_slope)
+    - Độ dốc st [1](st_slope)
+    - Độ dốc st [2](st_slope)
+    - Độ dốc của đoạn ST [1](st_slope)
+    - Độ dốc khi gắng sức tối đa là [0](st_slope)
+
+- intent: inform_num_major_vessels
+  examples: |
+    - số mạch máu [0](num_major_vessels)
+    - Số mạch máu chính [0](num_major_vessels)
+    - Số mạch máu chính [1](num_major_vessels)
+    - Số mạch máu chính [2](num_major_vessels)
+    - Số mạch máu chính [3](num_major_vessels)
+    - Số mạch máu chính được quan sát [2](num_major_vessels)
+    - Số mạch máu chính qua chụp huỳnh quang [3](num_major_vessels)
+
+- intent: inform_thalassemia
+  examples: |
+    - thalassemia [1](thalassemia)
+    - thalassemia [2](thalassemia)
+    - thalassemia [3](thalassemia)
+    - Kết quả xét nghiệm [1](thalassemia)
+    - xét nghiệm thalassemia [2](thalassemia)
+    - Kết quả xét nghiệm thalassemia [3](thalassemia)

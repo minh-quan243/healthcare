@@ -1,0 +1,39 @@
+version: "3.1"
+
+stories:
+
+- story: Luồng đánh giá nguy cơ bệnh tim
+  steps:
+    - intent: greet
+    - action: utter_greet
+
+    - intent: affirm
+    - action: utter_begin
+
+    - intent: request_risk_assessment
+    - action: risk_assessment_form
+    - active_loop: risk_assessment_form
+
+    - action: risk_assessment_form
+    - active_loop: null
+    - action: action_predict_heart_disease
+    - action: utter_risk_result
+
+    - intent: explain_risk
+    - action: utter_risk_explain
+
+    - intent: goodbye
+    - action: utter_goodbye
+
+- story: Người dùng từ chối đánh giá
+  steps:
+    - intent: greet
+    - action: utter_greet
+
+    - intent: deny
+    - action: utter_goodbye
+
+- story: Người dùng cảm ơn
+  steps:
+    - intent: thank_you
+    - action: utter_goodbye

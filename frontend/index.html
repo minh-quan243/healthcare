@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <title>Healthcare+ AI</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+  <link href="static/css/style.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-blue-100 to-white">
+
+  <!-- Header -->
+  <header class="flex justify-between items-center p-6">
+    <div class="text-4xl font-extrabold text-blue-700 flex items-center gap-3">
+      <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path d="M12 8c2.21 0 4 1.79 4 4s-1.79 4-4 4-4-1.79-4-4 1.79-4 4-4zm0 6c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 0c0 .59.41 1.08.97 1.22.56.14 1.02-.27 1.18-.81.13-.36.11-.75-.04-1.07.07-.06.15-.11.23-.16.14.57.35 1.11.63 1.61 1.29 2.07 3.87 3.29 6.24 3.39.2 0 .4.03.61.03 1.31 0 2.52-.42 3.54-1.15.74-.47 1.39-.99 2.01-1.58.47-.42.98-.88 1.5-1.35-2.17 3.34-6.37 5.28-10.15 5.28-5.49 0-10-4.51-10-10s4.51-10 10-10c4.24 0 7.97 2.56 9.62 6.32-.61-.1-1.25-.18-1.88-.22C13.4 2.56 12 2 12 2z"/>
+      </svg>
+      Healthcare_AI.com
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="grid grid-cols-1 md:grid-cols-2 gap-8 p-6">
+    <div class="animate__animated animate__fadeInLeft">
+      <h1 class="text-5xl font-extrabold text-blue-800 leading-tight">Personalized <br /> Health Assistant</h1>
+      <p class="mt-4 text-lg text-gray-700">
+        Access smart medical advice anytime. Talk to our AI healthcare chatbot to get recommendations, symptom checks, and more.
+      </p>
+      <div class="mt-6 flex gap-4">
+        <input type="text" class="max-w-sm p-2 border-2 border-blue-300 rounded-lg" placeholder="Search symptoms...">
+        <button class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">
+          <svg class="mr-2 h-4 w-4 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path d="M12 4V1h-1v3H9V1H8v3H6V1H5v3H3V1H2v4h3v2H2v4h3v3H2v4h3v3h2v-3h2v3h2v-3h2v3h2v-3h-3v-4h3V9h-3V5h3V1z"/>
+          </svg>
+          Start Now
+        </button>
+      </div>
+    </div>
+
+    <div>
+      <img src="static/images/healthcare-illustration.jpg" alt="Healthcare Illustration" class="w-full max-w-md mx-auto">
+    </div>
+  </main>
+
+  <!-- Features Section -->
+  <section class="mt-16 p-6">
+    <h2 class="text-2xl font-bold text-blue-700 mb-6">Features</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="border-2 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+        <h3 class="font-semibold text-lg mb-2">Symptom Checker</h3>
+        <p class="text-gray-600 text-sm">Check symptoms and receive AI-based suggestions instantly.</p>
+      </div>
+      <div class="border-2 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+        <h3 class="font-semibold text-lg mb-2">Medication Guide</h3>
+        <p class="text-gray-600 text-sm">Get guidance on usage, side effects, and interactions.</p>
+      </div>
+      <div class="border-2 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+        <h3 class="font-semibold text-lg mb-2">24/7 Chat Support</h3>
+        <p class="text-gray-600 text-sm">Talk to our AI chatbot at any time for quick answers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chatbot Container -->
+  <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-4">
+    <!-- Chatbot Window (hidden by default) -->
+    <div id="chatbotWindow" class="chatbot-container w-80 h-96 bg-white rounded-t-lg shadow-xl flex flex-col hidden">
+      <!-- Chatbot Header -->
+      <div class="bg-blue-600 text-white p-3 rounded-t-lg flex justify-between items-center">
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path d="M12 4V1h-1v3H9V1H8v3H6V1H5v3H3V1H2v4h3v2H2v4h3v3H2v4h3v3h2v-3h2v3h2v-3h2v3h2v-3h-3v-4h3V9h-3V5h3V1z"/>
+          </svg>
+          <span class="font-semibold">Healthcare Assistant</span>
+        </div>
+        <button id="closeChatbot" class="text-white hover:text-gray-200">
+          <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Chat Messages Area -->
+      <div id="chatMessages" class="flex-1 p-4 overflow-y-auto">
+        <div class="mb-4">
+        </div>
+      </div>
+
+      <!-- Chat Input -->
+      <div class="p-3 border-t">
+        <div class="flex gap-2">
+          <input id="chatInput" type="text" placeholder="Type your message..." class="flex-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300">
+          <button id="sendMessage" class="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chatbot Button -->
+    <button id="chatbotButton" class="rounded-full shadow-lg bg-blue-600 hover:bg-blue-700 p-4">
+      <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path d="M12 4V1h-1v3H9V1H8v3H6V1H5v3H3V1H2v4h3v2H2v4h3v3H2v4h3v3h2v-3h2v3h2v-3h2v3h2v-3h-3v-4h3V9h-3V5h3V1z"/>
+      </svg>
+    </button>
+  </div>
+
+  <script src="static/js/app.js"></script>
+</body>
+</html>

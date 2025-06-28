@@ -1,0 +1,211 @@
+/* Chatbot Container */
+.chatbot-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  max-width: 400px;
+  height: 450px;
+  background-color: #fff;
+  border-radius: 15px 15px 0 0;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  display: none; /* Ẩn mặc định */
+  flex-direction: column;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  z-index: 9999; /* Đảm bảo chatbot nằm trên các phần tử khác */
+  opacity: 0;
+}
+
+/* Hiển thị chatbot khi có class .open */
+.chatbot-container.open {
+  display: flex; /* Khi mở, chatbot hiển thị */
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Chatbot Header */
+.chatbot-header {
+  background-color: #4caf50; /* Màu xanh lá mát mắt */
+  color: #fff;
+  padding: 12px;
+  border-radius: 15px 15px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.chatbot-header .close-chatbot {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Chat Messages Area */
+#chatMessages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background-color: #fafafa;
+  border-bottom: 1px solid #ddd;
+  border-radius: 0 0 15px 15px;
+}
+
+/* Custom scrollbar */
+#chatMessages::-webkit-scrollbar {
+  width: 8px;
+}
+
+#chatMessages::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+#chatMessages::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+#chatMessages::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Message bubbles */
+.message {
+  max-width: 80%;
+  margin-bottom: 10px;
+  padding: 12px;
+  border-radius: 15px;
+  font-size: 15px;
+  word-wrap: break-word;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-message {
+  background-color: #4caf50;
+  color: white;
+  align-self: flex-end;
+}
+
+.bot-message {
+  background-color: #e0e0e0;
+  color: #333;
+  align-self: flex-start;
+}
+
+/* Typing indicator */
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.typing-dot {
+  width: 10px;
+  height: 10px;
+  margin-right: 6px;
+  border-radius: 50%;
+  background-color: #4caf50;
+  animation: bounce 0.6s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Bounce animation for typing indicator */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Input area */
+.chatbot-input {
+  padding: 12px;
+  border: none;
+  border-top: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.chatbot-input input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 20px;
+  background-color: #f1f1f1;
+  font-size: 15px;
+}
+
+.chatbot-input input:focus {
+  outline: none;
+  background-color: #e6f0ff;
+}
+
+.chatbot-input button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 12px;
+  margin-left: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.chatbot-input button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Chatbot Button */
+.chat-button {
+  transition: all 0.2s ease;
+}
+
+.chat-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Image styles */
+.chat-image {
+  max-height: 200px;
+  object-fit: contain;
+  border-radius: 15px;
+  margin-top: 12px;
+}
+
+/* Button in the chat */
+.chat-buttons-container {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chat-buttons-container button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.chat-buttons-container button:hover {
+  background-color: #388e3c;
+}
+
+/* Modal close button */
+.chatbot-header .close-chatbot:hover {
+  color: #ff4d4d;
+}

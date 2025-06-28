@@ -1,0 +1,6 @@
+action_endpoint:
+  url: "http://localhost:5055/webhook"
+webhook:
+  webhook_rest:
+    webhook_rest:
+      # This is the default endpoint we're using

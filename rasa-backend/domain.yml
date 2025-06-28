@@ -1,0 +1,225 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - request_risk_assessment
+  - explain_risk
+  - inform_age
+  - inform_sex
+  - inform_chest_pain_type
+  - inform_resting_bp
+  - inform_cholesterol
+  - inform_fasting_blood_sugar
+  - inform_resting_ecg
+  - inform_max_heart_rate
+  - inform_exercise_angina
+  - inform_st_depression
+  - inform_st_slope
+  - inform_num_major_vessels
+  - inform_thalassemia
+  - out_of_scope
+  - thank_you
+
+
+entities:
+  - age
+  - sex
+  - chest_pain_type
+  - resting_bp
+  - cholesterol
+  - fasting_blood_sugar
+  - resting_ecg
+  - max_heart_rate
+  - exercise_angina
+  - st_depression
+  - st_slope
+  - num_major_vessels
+  - thalassemia
+
+slots:
+
+  age:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: age
+
+  sex:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: sex
+
+  chest_pain_type:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: chest_pain_type
+
+  resting_bp:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: resting_bp
+
+  cholesterol:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: cholesterol
+
+  fasting_blood_sugar:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: fasting_blood_sugar
+
+  resting_ecg:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: resting_ecg
+
+  max_heart_rate:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: max_heart_rate
+
+  exercise_angina:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: exercise_angina
+
+  st_depression:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: st_depression
+
+  st_slope:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: st_slope
+
+  num_major_vessels:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: num_major_vessels
+
+  thalassemia:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: thalassemia
+
+  risk_score:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: custom
+
+responses:
+  utter_greet:
+    - text: "Xin chào! Tôi là trợ lý ảo đánh giá nguy cơ bệnh tim. Bạn có muốn kiểm tra nguy cơ không?"
+
+  utter_begin:
+    - text: "Vậy bạn muốn đánh giá hay kiểm tra gì "
+
+  utter_ask_age:
+    - text: "Bạn bao nhiêu tuổi?"
+
+  utter_ask_sex:
+    - text: "Giới tính của bạn là gì? (Nam: 1, Nữ: 0)"
+
+  utter_ask_chest_pain_type:
+    - text: "Loại đau ngực bạn gặp phải? (0: typical angina, 1: atypical angina, 2: non-anginal pain, 3: asymptomatic)"
+
+  utter_ask_resting_bp:
+    - text: "Huyết áp tâm trương lúc nghỉ của bạn? (mmHg)"
+
+  utter_ask_cholesterol:
+    - text: "Chỉ số cholesterol của bạn? (mg/dl)"
+
+  utter_ask_fasting_blood_sugar:
+    - text: "Đường huyết lúc đói? (> 120 mg/dl: 1, ≤ 120 mg/dl: 0)"
+
+  utter_ask_resting_ecg:
+    - text: "Kết quả điện tâm đồ lúc nghỉ? (0: bình thường, 1: có bất thường, 2: phì đại thất trái)"
+
+  utter_ask_max_heart_rate:
+    - text: "Nhịp tim tối đa đạt được của bạn?"
+
+  utter_ask_exercise_angina:
+    - text: "Có bị đau thắt ngực khi gắng sức không? (Có: 1, Không: 0)"
+
+  utter_ask_st_depression:
+    - text: "Độ chênh xuống của đoạn ST khi gắng sức so với lúc nghỉ?"
+
+  utter_ask_st_slope:
+    - text: "Độ dốc của đoạn ST khi gắng sức tối đa? (0: dốc lên, 1: phẳng, 2: dốc xuống)"
+
+  utter_ask_num_major_vessels:
+    - text: "Số mạch máu chính được quan sát thấy qua chụp huỳnh quang? (0-3)"
+
+  utter_ask_thalassemia:
+    - text: "Kết quả xét nghiệm thalassemia? (1: khuyết tật cố định, 2: bình thường, 3: khuyết tật có thể đảo ngược)"
+
+  utter_missing_info:
+    - text: "Cần thêm thông tin để đánh giá nguy cơ. Bạn có thể cung cấp các thông tin còn thiếu không?"
+
+  utter_risk_result:
+    - text: "Kết quả đánh giá nguy cơ của bạn: {risk_score}%"
+
+  utter_risk_explain:
+    - text: "giải thích về đánh giá của tôi là : "
+
+  utter_goodbye:
+    - text: "Tạm biệt! Hãy giữ gìn sức khỏe nhé."
+
+  utter_out_of_scope:
+    - text: "Xin lỗi, tôi không hiểu ý bạn. Bạn có thể nói rõ hơn không?"
+
+forms:
+  risk_assessment_form:
+    required_slots:
+      - age
+      - sex
+      - chest_pain_type
+      - resting_bp
+      - cholesterol
+      - fasting_blood_sugar
+      - resting_ecg
+      - max_heart_rate
+      - exercise_angina
+      - st_depression
+      - st_slope
+      - num_major_vessels
+      - thalassemia
+
+actions:
+  - action_predict_heart_disease
+  - action_set_risk_score
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

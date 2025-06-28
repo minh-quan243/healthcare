@@ -1,0 +1,129 @@
+version: "3.1"
+
+rules:
+
+# 1. Chào hỏi
+- rule: Chào hỏi
+  steps:
+    - intent: greet
+    - action: utter_greet
+
+# 2. Bắt đầu
+- rule: Bắt đầu
+  steps:
+    - intent: affirm
+    - action: utter_begin
+
+# 2. Tạm biệt
+- rule: Tạm biệt
+  steps:
+    - intent: goodbye
+    - action: utter_goodbye
+
+# 3. Giải thích kết quả nguy cơ
+- rule: Giải thích kết quả nguy cơ
+  steps:
+    - intent: explain_risk
+    - action: utter_risk_explain
+
+# 4. Bắt đầu đánh giá nguy cơ => Gọi form
+- rule: Bắt đầu đánh giá nguy cơ bệnh tim
+  steps:
+    - intent: request_risk_assessment
+    - action: risk_assessment_form
+    - active_loop: risk_assessment_form
+
+# 5. Cho phép người dùng cung cấp thông tin trong quá trình form đang chạy
+- rule: Cung cấp thông tin tuổi
+  steps:
+    - intent: inform_age
+    - action: risk_assessment_form
+    - active_loop: risk_assessment_form
+
+- rule: Cung cấp thông tin giới tính
+  steps:
+    - intent: inform_sex
+    - action: risk_assessment_form
+    - active_loop: risk_assessment_form
+
+- rule: Cung cấp thông tin loại đau
+  steps:
+    - intent: inform_chest_pain_type
+    - action: risk_assessment_form
+    - active_loop: risk_assessment_form
+
+- rule: Cung cấp thông tin huyết áp
+  steps:
+    - intent: inform_resting_bp
+    - action: risk_assessment_form
+    - active_loop: risk_assessment_form
+
+- rule: Cung cấp thông tin cholesterol
+  steps:
+    - intent: inform_cholesterol
+    - action: risk_assessment_form
+    - active_loop: risk_assessment_form
+
+- rule: Cung cấp thông tin đường huyết
+  steps:
+    - intent: inform_fasting_blood_sugar
+    - action: risk_assessment_form
+    - active_loop: risk_assessment_form
+
+- rule: Cung cấp thông tin điện tâm đồ
+  steps:
+    - intent: inform_resting_ecg
+    - action: risk_assessment_form
+    - active_loop: risk_assessment_form
+
+- rule: Cung cấp thông tin Nhịp tim tối đa
+  steps:
+    - intent: inform_max_heart_rate
+    - action: risk_assessment_form
+    - active_loop: risk_assessment_form
+
+- rule: Cung cấp thông tin đau thắt ngực
+  steps:
+    - intent: inform_exercise_angina
+    - action: risk_assessment_form
+    - active_loop: risk_assessment_form
+
+- rule: Cung cấp thông tin Độ chênh xuống
+  steps:
+    - intent: inform_st_depression
+    - action: risk_assessment_form
+    - active_loop: risk_assessment_form
+
+- rule: Cung cấp thông tin Độ dốc
+  steps:
+    - intent: inform_st_slope
+    - action: risk_assessment_form
+    - active_loop: risk_assessment_form
+
+- rule: Cung cấp thông tin Số mạch máu chính
+  steps:
+    - intent: inform_num_major_vessels
+    - action: risk_assessment_form
+    - active_loop: risk_assessment_form
+
+- rule: Cung cấp thông tin thalassemia
+  steps:
+    - intent: inform_thalassemia
+    - action: risk_assessment_form
+    - active_loop: risk_assessment_form
+
+# 6. Khi form hoàn tất, gọi action phân tích
+- rule: Khi form hoàn thành
+  condition:
+    - active_loop: risk_assessment_form
+  steps:
+    - action: risk_assessment_form
+    - active_loop: null
+    - action: action_predict_heart_disease
+    - action: utter_risk_result
+
+# 7. Xử lý ngoài phạm vi
+- rule: Out of scope
+  steps:
+    - intent: out_of_scope
+    - action: utter_out_of_scope
